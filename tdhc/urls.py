@@ -42,7 +42,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('members/', include('members.urls')),
     path('literals/', include('literals.urls')),
-    path('account/', include('account.urls')),
+    path('accounts/', include('account.urls')),
 
 
     path(

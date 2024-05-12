@@ -1,6 +1,6 @@
-# LEAD
+# THE DEVINE HEALERS CHURCH MOBOLE NO. 1 ASSEMBLY
 
-> Django Backend api for lead app.
+> Django Backend api for the TDHC app.
 > ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg) > ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 
 ## Requirements (Prerequisites)
@@ -92,4 +92,4 @@ You can find me here at:
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
-MIT © BPOHOMES
+MIT © TDHC
