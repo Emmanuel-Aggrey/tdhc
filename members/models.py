@@ -31,7 +31,7 @@ class Member(BaseModel):
         )
 
     status = models.ForeignKey(Status, on_delete=models.PROTECT)
-    group = models.ManyToManyField(Group)
+    group = models.ManyToManyField(Group, blank=True)
     marital_status = models.CharField(
         max_length=20, choices=MARITAL_STATUS.CHOICES, default=MARITAL_STATUS.SINGLE)
     first_name = models.CharField(max_length=200)
