@@ -24,14 +24,24 @@ class Member(BaseModel):
             (DIVORCED, ("Divorced")),
             (SEPARATED, ("Separate")),
 
+        )
 
+    class GENDER:
+        MALE = "male"
+        FEMALE = "female"
 
+        ALL = (MALE, FEMALE)
+
+        CHOICES = (
+            (MALE, ("Male")),
+            (FEMALE, ("Female")),
 
 
         )
-
+    gender = models.CharField(
+        max_length=20, blank=True, null=True, choices=GENDER.CHOICES)
     status = models.ForeignKey(Status, on_delete=models.PROTECT)
-    group = models.ManyToManyField(Group)
+    group = models.ManyToManyField(Group, blank=True)
     marital_status = models.CharField(
         max_length=20, choices=MARITAL_STATUS.CHOICES, default=MARITAL_STATUS.SINGLE)
     first_name = models.CharField(max_length=200)
