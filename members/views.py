@@ -32,6 +32,9 @@ class MemberReportView(APIView):
             "group_counts": self.get_group_counts(),
             "gender_counts": self.get_gender_counts(),
             "status_counts": self.get_status_counts(),
+            "total_members_baptised": self.get_total_members_baptised(),
+
+
 
 
         }
@@ -39,6 +42,9 @@ class MemberReportView(APIView):
 
     def get_total_members(self):
         return Member.objects.count()
+
+    def get_total_members_baptised(self):
+        return Member.objects.filter(baptismal_date__isnull=True).count()
 
     def get_marital_status_counts(self):
         return list(Member.objects.values('marital_status').annotate(count=Count('marital_status')))
