@@ -27,7 +27,7 @@ class MemberFilter(filters.FilterSet):
             'location',
             'occupation',
             'place_of_work',
-            # "search",
+            "gender",
 
         }
 
