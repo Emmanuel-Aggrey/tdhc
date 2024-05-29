@@ -14,4 +14,4 @@ class MemberSerializer(serializers.ModelSerializer):
         exclude = ["is_deleted"]
 
     def get_group_obj(self, obj: Member):
-        return obj.group.values_list('id', 'name')
+        return obj.group.values('id', 'name')
