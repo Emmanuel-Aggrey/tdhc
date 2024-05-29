@@ -1,7 +1,6 @@
 
 from rest_framework import serializers
 from members.models import Member
-from literals.serializers import LiteralsSerializer
 
 
 class MemberSerializer(serializers.ModelSerializer):
@@ -15,4 +14,4 @@ class MemberSerializer(serializers.ModelSerializer):
         exclude = ["is_deleted"]
 
     def get_group_obj(self, obj: Member):
-        return LiteralsSerializer(obj.group).data
+        return obj.group.values_list('id', 'name')
