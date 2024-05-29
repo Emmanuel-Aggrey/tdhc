@@ -1,24 +1,18 @@
 
 from rest_framework import serializers
 from members.models import Member
+from literals.serializers import LiteralsSerializer
 
 
-class BaseSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = None
-        exclude = [
-            "is_deleted",
-        ]
-        depth = 1
+class MemberSerializer(serializers.ModelSerializer):
+    status_name = serializers.StringRelatedField(source="status")
+    location_name = serializers.StringRelatedField(source="location")
+    group_obj = serializers.SerializerMethodField()
 
-    def to_representation(self, instance):
-        serializer = BaseSerializer(instance=instance)
-        serializer.Meta.model = instance.__class__
-        return serializer.data if instance else {}
-
-
-class MemberSerializer(BaseSerializer, serializers.ModelSerializer):
     class Meta:
         model = Member
         read_only_fields = ["id"]
         exclude = ["is_deleted"]
+
+    def get_group_obj(self, obj: Member):
+        return LiteralsSerializer(obj.group).data

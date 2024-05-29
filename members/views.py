@@ -15,7 +15,7 @@ from members.filters import MemberFilter
 
 
 class MemberViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     serializer_class = MemberSerializer
     queryset = Member.objects.order_by("id")
     filter_backends = [DjangoFilterBackend]
