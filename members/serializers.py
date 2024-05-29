@@ -15,7 +15,7 @@ class MemberSerializer(serializers.ModelSerializer):
         read_only_fields = ["id"]
         exclude = ["is_deleted"]
 
-        def to_representation(self, instance):
-            serializer = BaseSerializer(instance=instance)
-            serializer.Meta.model = instance.__class__
-            return serializer.data if instance else {}
+    def to_representation(self, instance):
+        serializer = BaseSerializer(instance=instance)
+        serializer.Meta.model = instance.__class__
+        return serializer.data if instance else {}
