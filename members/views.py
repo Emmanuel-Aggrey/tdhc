@@ -34,6 +34,7 @@ class MemberReportView(APIView):
             "status_counts": self.get_status_counts(),
             "total_members_baptised": self.get_total_members_baptised(),
             "total_members_with_occupation": self.get_total_members_with_occupation(),
+            "active_members": self.get_active_members(),
 
 
 
@@ -43,6 +44,9 @@ class MemberReportView(APIView):
 
     def get_total_members(self):
         return Member.objects.count()
+
+    def get_active_members(self):
+        return Member.objects.filter(status__name__iexact='active').count()
 
     def get_total_members_baptised(self):
         return Member.objects.exclude(baptismal_date__isnull=True).count()
