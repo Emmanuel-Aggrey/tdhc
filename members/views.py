@@ -33,6 +33,7 @@ class MemberReportView(APIView):
             "gender_counts": self.get_gender_counts(),
             "status_counts": self.get_status_counts(),
             "total_members_baptised": self.get_total_members_baptised(),
+            "total_members_with_occupation": self.get_total_members_with_occupation(),
 
 
 
