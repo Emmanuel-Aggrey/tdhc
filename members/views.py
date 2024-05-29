@@ -44,7 +44,7 @@ class MemberReportView(APIView):
         return Member.objects.count()
 
     def get_total_members_baptised(self):
-        return Member.objects.filter(baptismal_date__isnull=True).count()
+        return Member.objects.exclude(baptismal_date__isnull=True).count()
 
     def get_marital_status_counts(self):
         return list(Member.objects.values('marital_status').annotate(count=Count('marital_status')))
