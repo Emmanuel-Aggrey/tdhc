@@ -62,6 +62,7 @@ class Member(BaseModel):
     occupation = models.CharField(max_length=200, null=True, blank=True)
     place_of_work = models.CharField(max_length=200, null=True, blank=True)
     unique_id = models.CharField(max_length=200, null=True, blank=True)
+    number_of_children = models.PositiveSmallIntegerField(default=0)
 
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name}'
