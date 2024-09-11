@@ -133,7 +133,7 @@ REST_FRAMEWORK = {
     ),
     "EXCEPTION_HANDLER": "core.utils.exception_handler.custom_exception_handler",
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    "PAGE_SIZE": 100,
+    "PAGE_SIZE": 15,
 }
 
 SIMPLE_JWT = {
